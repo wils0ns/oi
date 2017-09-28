@@ -4,12 +4,14 @@ import argparse
 
 class App(object):
     """CLI application handler"""
+
     def __init__(self, name, **kwargs):
         """
+        Create a CLI application.
 
         Args:
             name (str): Application name.
-            kwargs (dict): Dictionary of parameters supported by argparse.ArgumentParser
+            kwargs (dict): Dictionary of parameters supported by argparse.ArgumentParser.
         """
         self.name = name
         self._type = 'app'
@@ -19,16 +21,24 @@ class App(object):
     @property
     def type(self):
         """
+        The command type.
 
         Returns:
-            str: the command type
+            str
         """
         return self._type
 
     @property
     def command_group(self):
+        """
+        Returns the sub parser of the application.
+
+        Returns:
+
+        """
         if not self.sub_parser:
             self.sub_parser = self.parser.add_subparsers()
+        print(type(self.sub_parser))
         return self.sub_parser
 
 
