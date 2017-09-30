@@ -40,6 +40,25 @@ class App(object):
             self.sub_parser = self.parser.add_subparsers()
         return self.sub_parser
 
+    def add_argument(self, *args, **kwargs):
+        """
+        Add optional arguments.
+
+        Args:
+            *args:
+            **kwargs:
+
+        See Also:
+            argparse.parser.add_argument()
+
+        Returns:
+
+        """
+        self.parser.add_argument(*args, **kwargs)
+
+    def parse_args(self, *args, **kwargs):
+        return self.parser.parse_args(*args, **kwargs)
+
 
 class Command(object):
     """Positional command argument parser"""
@@ -83,4 +102,17 @@ class Command(object):
         return self.sub_parser
 
     def add_argument(self, *args, **kwargs):
+        """
+        Add optional arguments.
+
+        Args:
+            *args:
+            **kwargs:
+
+        See Also:
+            argparse.parser.add_argument()
+
+        Returns:
+
+        """
         self.parser.add_argument(*args, **kwargs)
