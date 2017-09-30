@@ -3,7 +3,7 @@ import argparse
 
 
 class App(object):
-    """CLI parser"""
+    """Main parser"""
 
     def __init__(self, name, **kwargs):
         """
@@ -38,12 +38,19 @@ class App(object):
         """
         if not self.sub_parser:
             self.sub_parser = self.parser.add_subparsers()
-        print(type(self.sub_parser))
         return self.sub_parser
 
 
 class Command(object):
+    """Positional command argument parser"""
     def __init__(self, parent, name):
+        """
+        Creates a positional argument.
+
+        Args:
+            parent: To object to add this command to. Either an `App` or another `Command`.
+            name: The argument name.
+        """
         self.name = name
         self._type = 'command'
         self.parser = parent.command_group.add_parser(name)
@@ -55,10 +62,22 @@ class Command(object):
 
     @property
     def type(self):
+        """
+        The command type.
+
+        Returns:
+            str
+        """
         return self._type
 
     @property
     def command_group(self):
+        """
+        Returns the sub parser of the command.
+
+        Returns:
+
+        """
         if not self.sub_parser:
             self.sub_parser = self.parser.add_subparsers()
         return self.sub_parser
