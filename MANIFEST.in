@@ -1,0 +1,6 @@
+include .version
+include LICENSE.txt
+include README.rst
+
+# include directories
+# recursive-include dirname *
