@@ -9,7 +9,7 @@ with open(path.join(this_folder, '.version')) as f:
     version = f.read()
 
 # Get long description from README.rst file
-with open(path.join(this_folder, 'README.md'), encoding='utf-8') as f:
+with open(path.join(this_folder, 'README.rst'), encoding='utf-8') as f:
     long_description = f.read()
 
 setup(
