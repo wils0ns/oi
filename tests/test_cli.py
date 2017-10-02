@@ -9,4 +9,4 @@ user_add_cmd = oi.Command(user_cmd, 'add')
 user_add_cmd.add_argument('--name')
 user_add_cmd.add_argument('--email')
 
-print(app.parse())
+print(app.parse_args())
