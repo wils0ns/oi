@@ -22,10 +22,14 @@ Installing Oi package.
 Usage example
 ~~~~~~~~~~~~~
 
-myapp user list
+Given the commands bellow:
 
-myapp user add --name Wilson --email wilson@codeminus.org
+.. code-block:: bash
 
+    myapp user list
+    myapp user add --name Wilson --email wilson@codeminus.org
+
+The parser would look like this:
 
 .. code-block:: python
 
