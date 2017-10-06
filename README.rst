@@ -6,7 +6,8 @@ offering a more intuitive and easier way to build command-line interfaces.
 
 Why "Oi"? Why not?
 
-What does it mean? Well... What does it mean to you? Try `<https://en.wikipedia.org/wiki/Oi_(interjection)>`_
+What does it mean? Well... What does it mean to you? Try the `wiki
+<https://en.wikipedia.org/wiki/Oi_(interjection)>`_.
 
 
 Quick Start
