@@ -68,4 +68,4 @@ Running the application with the code above:
 Notice the `command` attribute of the Namespace.
 It correspond to the name of the command invoked.
 
-Sub-command names are appended to its parent command to ensure a unique identifier is created.
+The sub-command name is appended to its parent command to ensure a unique identifier is created.
