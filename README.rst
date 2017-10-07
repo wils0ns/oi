@@ -65,7 +65,6 @@ Running the application with the code above:
     Namespace(command='user_add', email='wilson@codeminus.org', name='Wilson')
 
 
-Notice the `command` attribute of the Namespace.
+Notice the **command** attribute of the Namespace.
 It correspond to the name of the command invoked.
-
 The sub-command name is appended to its parent command to ensure a unique identifier is created.
