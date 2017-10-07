@@ -40,8 +40,6 @@ The parser would look like this:
     user_add_cmd.add_argument('--email')
 
     print(app.parse_args())
-<<<<<<< Updated upstream
-=======
 
 Running the application with the code above:
 
@@ -69,4 +67,4 @@ Why "Oi"? Why not?
 
 What does it mean? Well... What does it mean to you? Try the `wiki
 <https://en.wikipedia.org/wiki/Oi_(interjection)>`_.
->>>>>>> Stashed changes
+
