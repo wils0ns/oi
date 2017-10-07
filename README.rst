@@ -27,8 +27,8 @@ Given the commands bellow:
 
 .. code-block:: bash
 
-    myapp user list
-    myapp user add --name Wilson --email wilson@codeminus.org
+    $ myapp user list
+    $ myapp user add --name Wilson --email wilson@codeminus.org
 
 The parser would look like this:
 
@@ -46,3 +46,25 @@ The parser would look like this:
     user_add_cmd.add_argument('--email')
 
     print(app.parse_args())
+
+Running the application with the code above:
+
+.. code-block:: bash
+
+    $ myapp user
+    Namespace(command='user')
+
+.. code-block:: bash
+
+    $ myapp user list
+    Namespace(command='user_list')
+
+.. code-block:: bash
+
+    $ myapp user add --name Wilson --email wilson@codeminus.org
+    Namespace(command='user_add', email='wilson@codeminus.org', name='Wilson')
+
+
+Notice the **command** attribute of the Namespace.
+It correspond to the name of the command invoked.
+The sub-command name is appended to its parent command to ensure a unique identifier is created.
