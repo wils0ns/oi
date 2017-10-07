@@ -21,8 +21,8 @@ Given the commands bellow:
 
 .. code-block:: bash
 
-    myapp user list
-    myapp user add --name Wilson --email wilson@codeminus.org
+    $ myapp user list
+    $ myapp user add --name Wilson --email wilson@codeminus.org
 
 The parser would look like this:
 
