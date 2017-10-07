@@ -63,8 +63,6 @@ Notice the **command** attribute of the Namespace.
 It correspond to the name of the command invoked.
 The sub-command name is appended to its parent command to ensure a unique identifier is created.
 
-Why "Oi"? Why not?
-
-What does it mean? Well... What does it mean to you? Try the `wiki
+What does "Oi" mean? Well... What does it mean to you? Try the `wiki
 <https://en.wikipedia.org/wiki/Oi_(interjection)>`_.
 
