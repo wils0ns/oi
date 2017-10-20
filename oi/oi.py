@@ -67,7 +67,7 @@ class App(BaseCommand):
 
         Args:
             name (str): Application name.
-            kwargs (dict): Dictionary of parameters supported by argparse.ArgumentParser.
+            kwargs: Parameters supported by argparse.ArgumentParser.
         """
         super(App, self).__init__(
             name=name,
