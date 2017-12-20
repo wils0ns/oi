@@ -81,18 +81,19 @@ class App(BaseCommand):
 
 class Command(BaseCommand):
     """Positional command argument parser."""
-    def __init__(self, parent, name):
+    def __init__(self, parent, name, **kwargs):
         """
         Creates a positional command argument.
 
         Args:
             parent: To object to add this command to. Either an `App` or another `Command`.
             name: The argument name.
+            kwargs: Parameters supported by argparse's parsers.
         """
         super(Command, self).__init__(
             name=name,
             cmd_type=BaseCommand.TYPE_COMMAND,
-            parser=parent.command_group.add_parser(name)
+            parser=parent.command_group.add_parser(name, **kwargs)
         )
         if parent.type == BaseCommand.TYPE_COMMAND:
             self.parser.set_defaults(command='{0}_{1}'.format(parent.name, name))
