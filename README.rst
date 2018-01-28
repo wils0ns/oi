@@ -1,7 +1,7 @@
 Oi - Simple command-line interface parser.
 ==========================================
 
-This small python package implements a simple object-oriented layer on top of python's *argparse*,
+This small python package implements a simple object-oriented layer on top of python's `argparse <https://docs.python.org/2/library/argparse.html>`_,
 offering a more intuitive and easier way to build command-line interfaces.
 
 Quick Start
@@ -63,6 +63,5 @@ Notice the **command** attribute of the Namespace.
 It correspond to the name of the command invoked.
 The sub-command name is appended to its parent command to ensure a unique identifier is created.
 
-What does "Oi" mean? Well... What does it mean to you? Try the `wiki
-<https://en.wikipedia.org/wiki/Oi_(interjection)>`_.
+What does "Oi" mean? Well... What does it mean to you? Try the `wiki <https://en.wikipedia.org/wiki/Oi_(interjection)>`_.
 

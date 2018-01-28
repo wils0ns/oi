@@ -1,8 +1,11 @@
+"""Oi command line parser module"""
 from __future__ import print_function, absolute_import
 import argparse
 
 
 class BaseCommand(object):
+    """Base commandline object"""
+
     TYPE_APP = 'app'
     TYPE_COMMAND = 'command'
 
@@ -35,7 +38,7 @@ class BaseCommand(object):
         Returns the sub parser of the application.
 
         Returns:
-
+            argparse._SubParsersAction
         """
         if not self.sub_parser:
             self.sub_parser = self.parser.add_subparsers()
@@ -50,7 +53,7 @@ class BaseCommand(object):
             **kwargs:
 
         See Also:
-            argparse.parser.add_argument()
+            https://docs.python.org/2/library/argparse.html#the-add-argument-method
 
         Returns:
 
@@ -67,7 +70,10 @@ class App(BaseCommand):
 
         Args:
             name (str): Application name.
-            kwargs: Parameters supported by argparse.ArgumentParser.
+            **kwargs: Parameters supported by argparse.ArgumentParser.
+        
+        See Also:
+            https://docs.python.org/2/library/argparse.html#argumentparser-objects
         """
         super(App, self).__init__(
             name=name,
@@ -76,6 +82,19 @@ class App(BaseCommand):
         )
 
     def parse_args(self, *args, **kwargs):
+        """Parses the command line arguments.
+
+        Args:
+            *args:
+            **kwargs:
+
+        Returns:
+            argparse.Namespace:
+
+        See Also:
+            https://docs.python.org/2/library/argparse.html#the-parse-args-method
+
+        """
         return self.parser.parse_args(*args, **kwargs)
 
 
