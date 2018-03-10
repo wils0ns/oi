@@ -21,6 +21,7 @@ class BaseCommand(object):
         self._type = cmd_type
         self.parser = parser
         self.sub_parser = None
+        self.args = []
 
     @property
     def type(self):
@@ -58,8 +59,23 @@ class BaseCommand(object):
         Returns:
 
         """
+        self.args.append({'args': args, 'kwargs': kwargs})
         self.parser.add_argument(*args, **kwargs)
 
+    def help_list(self, markdown=False):
+        hlist = []
+        for arg in self.args:
+            for param in arg['args']:
+                if param.startswith('-'):
+                    hlist.append({'param': param, 'help': arg['kwargs'].get('help', '')})
+
+        if markdown:
+            hstring = ''
+            for _help in hlist:
+                hstring += '|`{}`|{}|\n'.format(_help['param'], _help['help'])
+            return hstring
+        else:
+            return hlist
 
 class App(BaseCommand):
     """Main parser."""
