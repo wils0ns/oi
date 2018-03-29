@@ -62,20 +62,22 @@ class BaseCommand(object):
         self.args.append({'args': args, 'kwargs': kwargs})
         self.parser.add_argument(*args, **kwargs)
 
-    def help_list(self, markdown=False):
-        hlist = []
+    def help_markdown(self):
+        """Generates markdown code with all command arguments.
+
+        Returns:
+            str: [description]
+        """
+
+        markdown = '|Argument|Help|\n|-|-|\n'
         for arg in self.args:
             for param in arg['args']:
                 if param.startswith('-'):
-                    hlist.append({'param': param, 'help': arg['kwargs'].get('help', '')})
+                    markdown += '|`{}`|{}|\n'.format('` `'.join(arg['args']), arg['kwargs'].get('help', ''))
+                    break
 
-        if markdown:
-            hstring = ''
-            for _help in hlist:
-                hstring += '|`{}`|{}|\n'.format(_help['param'], _help['help'])
-            return hstring
-        else:
-            return hlist
+        return markdown
+
 
 class App(BaseCommand):
     """Main parser."""
@@ -87,7 +89,7 @@ class App(BaseCommand):
         Args:
             name (str): Application name.
             **kwargs: Parameters supported by argparse.ArgumentParser.
-        
+
         See Also:
             https://docs.python.org/2/library/argparse.html#argumentparser-objects
         """

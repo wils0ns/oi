@@ -7,7 +7,7 @@ user_list_cmd = oi.Command(user_cmd, 'list')
 
 user_add_cmd = oi.Command(user_cmd, 'add', help='add help')
 user_add_cmd.add_argument('--name', help='test help     here')
-user_add_cmd.add_argument('--email')
+user_add_cmd.add_argument('-e', '--email', help='test email')
 
 print(app.parse_args())
-print(user_add_cmd.help_list(markdown=True))
+print(user_add_cmd.help_markdown())
