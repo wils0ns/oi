@@ -4,7 +4,7 @@ import argparse
 
 
 class BaseCommand(object):
-    """Base commandline object"""
+    """Base command line object"""
 
     TYPE_APP = 'app'
     TYPE_COMMAND = 'command'
@@ -47,7 +47,7 @@ class BaseCommand(object):
 
     def add_argument(self, *args, **kwargs):
         """
-        Add optional arguments.
+        Add arguments.
 
         Args:
             *args:
@@ -63,7 +63,8 @@ class BaseCommand(object):
         self.parser.add_argument(*args, **kwargs)
 
     def help_markdown(self):
-        """Generates markdown code with all command arguments.
+        """
+        Generates markdown code with all command arguments.
 
         Returns:
             str: [description]
@@ -118,6 +119,17 @@ class App(BaseCommand):
 
 class Command(BaseCommand):
     """Positional command argument parser."""
+
+    ACTION_STORE = 'store'
+    ACTION_STORE_CONST = 'store_const'
+    ACTION_STORE_TRUE = 'store_true'
+    ACTION_STORE_FALSE = 'store_false'
+    ACTION_APPEND = 'append'
+    ACTION_APPEND_CONST = 'append_const'
+    ACTION_COUNT = 'count'
+    ACTION_HELP = 'help'
+    ACTION_VERSION = 'version'
+
     def __init__(self, parent, name, **kwargs):
         """
         Creates a positional command argument.
@@ -136,3 +148,17 @@ class Command(BaseCommand):
             self.parser.set_defaults(command='{0}_{1}'.format(parent.name, name))
         else:
             self.parser.set_defaults(command='{0}'.format(name))
+
+    def add_argument(self, *args, action='store', **kwargs):
+        """
+        Add arguments to command.
+
+        Args:
+            action (str, optional): Defaults to 'store'. Commonly used argparse argument property.
+
+        Note:
+            Take advantage of the action constants from the Command class to avoid typos.
+        """
+
+        kwargs.update({'action': action})
+        super(Command, self).add_argument(*args, **kwargs)
