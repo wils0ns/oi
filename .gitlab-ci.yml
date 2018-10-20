@@ -3,7 +3,7 @@ image: alpine
 run pylint:
   stage: test
   script:
-    - apk --no-cache add py2-pip python-dev
+    - apk --no-cache add py2-pip python-dev    
     - pip install -r requirements.txt
     - pip install -e .
     - python tests/run_pylint.py
@@ -27,6 +27,7 @@ publish to pypi:
   stage: deploy
   script:
     - apk --no-cache add py2-pip python-dev
+    - pip install pip --upgrade
     - pip install twine
     - python setup.py sdist
     - twine upload dist/*
