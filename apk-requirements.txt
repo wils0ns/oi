@@ -1,0 +1,4 @@
+make
+build-base
+py2-pip
+python-dev
