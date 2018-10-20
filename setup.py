@@ -1,25 +1,26 @@
-from setuptools import setup, find_packages
+"""Package setup"""
 from os import path
 from codecs import open
+from setuptools import setup, find_packages
 
-this_folder = path.abspath(path.dirname(__file__))
+THIS_FOLDER = path.abspath(path.dirname(__file__))
 
 # Get package version from .version file
-with open(path.join(this_folder, '.version')) as f:
-    version = f.read()
+with open(path.join(THIS_FOLDER, '.version')) as f:
+    VERSION = f.read()
 
 # Get long description from README.rst file
-with open(path.join(this_folder, 'README.rst'), encoding='utf-8') as f:
-    long_description = f.read()
+with open(path.join(THIS_FOLDER, 'README.rst'), encoding='utf-8') as f:
+    LONG_DESCRIPTION = f.read()
 
 setup(
     name='oicli',
-    version=version,
+    version=VERSION,
     author='Wilson Santos',
     author_email='wilson@codeminus.org',
     url='https://gitlab.com/cathaldallan/oi',
     description='Simple command-line parser.',
-    long_description=long_description,
+    long_description=LONG_DESCRIPTION,
     license='MIT',
     keywords='cli argparse command-line interface',
     classifiers=[
