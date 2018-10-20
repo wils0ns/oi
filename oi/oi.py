@@ -148,17 +148,3 @@ class Command(BaseCommand):
             self.parser.set_defaults(command='{0}_{1}'.format(parent.name, name))
         else:
             self.parser.set_defaults(command='{0}'.format(name))
-
-    def add_argument(self, *args, action='store', **kwargs):
-        """
-        Add arguments to command.
-
-        Args:
-            action (str, optional): Defaults to 'store'. Commonly used argparse argument property.
-
-        Note:
-            Take advantage of the action constants from the Command class to avoid typos.
-        """
-
-        kwargs.update({'action': action})
-        super(Command, self).add_argument(*args, **kwargs)
