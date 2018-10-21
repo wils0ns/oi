@@ -1,9 +1,9 @@
-image: alpine
+image: python:alpine
 
 run pylint:
   stage: test
   script:
-    - apk --no-cache add $(cat apk-requirements.txt)
+    # - apk --no-cache add $(cat apk-requirements.txt)
     - pip install -r requirements.txt
     - pip install -e .
     - python tests/run_pylint.py
@@ -11,7 +11,7 @@ run pylint:
 create docs page:
   stage: deploy
   script:
-    - apk --no-cache add $(cat apk-requirements.txt)    
+    # - apk --no-cache add $(cat apk-requirements.txt)    
     - pip install -r requirements.txt
     - pip install -e .
     - make html -C docs
@@ -25,7 +25,7 @@ create docs page:
 publish to pypi:
   stage: deploy
   script:
-    - apk --no-cache add $(cat apk-requirements.txt)    
+    # - apk --no-cache add $(cat apk-requirements.txt)    
     - pip install twine
     - python setup.py sdist
     - twine upload dist/*
