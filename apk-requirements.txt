@@ -3,3 +3,4 @@ gcc
 libffi-dev
 py2-pip
 python-dev
+linux-headers
