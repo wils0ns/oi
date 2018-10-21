@@ -1,4 +1,5 @@
 make
-build-base
+gcc
+libffi-dev
 py2-pip
 python-dev
