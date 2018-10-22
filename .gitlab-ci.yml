@@ -2,16 +2,14 @@ image: python:3.7.0-stretch
 
 run pylint:
   stage: test
-  script:
-    - apk --no-cache add $(cat apk-requirements.txt)
+  script:    
     - pip install -r requirements.txt
     - pip install -e .
     - python tests/run_pylint.py
 
 create docs page:
   stage: deploy
-  script:
-    - apk --no-cache add $(cat apk-requirements.txt)    
+  script:    
     - pip install -r requirements.txt
     - pip install -e .
     - make html -C docs
@@ -24,8 +22,7 @@ create docs page:
 
 publish to pypi:
   stage: deploy
-  script:
-    - apk --no-cache add $(cat apk-requirements.txt)    
+  script:    
     - pip install twine
     - python setup.py sdist
     - twine upload dist/*
